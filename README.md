@@ -1,54 +1,54 @@
 # Markdown CRUD
 
-Aplicación de escritorio para Windows 11 (Electron) que permite hacer **CRUD** (crear, leer, actualizar y eliminar) de archivos Markdown, con **vista previa estilizada en vivo**, **buscador de texto** y **exportación a HTML/PDF**.
+Desktop application for Windows 11 (Electron) that provides **CRUD** (create, read, update and delete) operations for Markdown files, with a **stylized live preview**, **text search** and **HTML/PDF export**.
 
-## Características
+## Features
 
-- **Crear / Abrir / Editar / Renombrar / Eliminar** archivos `.md` / `.markdown` / `.mdown`
-- **Vista previa en vivo** con estilos de GitHub (`github-markdown-css`)
-- **Resaltado de sintaxis** de bloques de código (`highlight.js`)
-- **Buscador de texto** dentro del documento abierto, con resaltado y navegación entre coincidencias
-- **Explorador de carpeta** que lista los archivos Markdown para abrirlos rápidamente
-- **Exportar a HTML** y **Exportar a PDF**
-- Modos de vista: Split / Solo editor / Solo vista previa
-- Estilo claro con texto oscuro legible (incluidas tablas y negritas)
+- **Create / Open / Edit / Rename / Delete** `.md` / `.markdown` / `.mdown` files
+- **Live preview** styled with GitHub CSS (`github-markdown-css`)
+- **Syntax highlighting** for code blocks (`highlight.js`)
+- **Text search** within the open document, with highlighting and navigation between matches
+- **Folder explorer** that lists Markdown files for quick access
+- **Export to HTML** and **Export to PDF**
+- View modes: Split / Editor only / Preview only
+- Light theme with readable dark text (including tables and bold text)
 
-## Requisitos
+## Requirements
 
-- [Node.js](https://nodejs.org) 18 o superior
+- [Node.js](https://nodejs.org) 18 or higher
 - Windows 10/11
 
-## Puesta en marcha (desarrollo)
+## Getting started (development)
 
 ```bash
 npm install
 npm start
 ```
 
-## Generar instalador para Windows
+## Build Windows installer
 
 ```bash
 npm run build:win
 ```
 
-El instalador `.exe` (NSIS) se generará en la carpeta `dist/`.
+The `.exe` installer (NSIS) will be generated in the `dist/` folder.
 
-## Estructura del proyecto
+## Project structure
 
 ```
 markdown-crud/
-├─ package.json          # dependencias + configuración electron-builder
+├─ package.json          # dependencies + electron-builder config
 ├─ src/
-│  ├─ main/main.js       # proceso principal (ventana, CRUD en disco, exportación)
-│  ├─ preload.js         # API segura entre main y renderer (contextBridge)
-│  └─ renderer/          # interfaz (editor + vista previa + buscador)
+│  ├─ main/main.js       # main process (window, file CRUD, export)
+│  ├─ preload.js         # safe API between main and renderer (contextBridge)
+│  └─ renderer/          # UI (editor + preview + search)
 ```
 
-## Seguridad
+## Security
 
-- `contextIsolation: true` y `nodeIntegration: false`
-- Comunicación mediante IPC acotado (`ipcMain.handle` / `ipcRenderer.invoke`) expuesto con `contextBridge`
+- `contextIsolation: true` and `nodeIntegration: false`
+- Communication through a restricted IPC (`ipcMain.handle` / `ipcRenderer.invoke`) exposed via `contextBridge`
 
-## Licencia
+## License
 
 MIT
