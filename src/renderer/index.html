@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Markdown CRUD</title>
+  <link rel="stylesheet" href="../../node_modules/github-markdown-css/github-markdown.css">
+  <link rel="stylesheet" href="../../node_modules/highlight.js/styles/github.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header id="toolbar">
+      <div class="toolbar-left">
+        <button id="btn-new" class="btn" title="Nuevo archivo (Ctrl+N)">+ Nuevo</button>
+        <button id="btn-open" class="btn" title="Abrir archivo (Ctrl+O)">Abrir</button>
+        <button id="btn-save" class="btn" title="Guardar (Ctrl+S)">Guardar</button>
+        <button id="btn-rename" class="btn" title="Renombrar archivo">Renombrar</button>
+        <button id="btn-delete" class="btn btn-danger" title="Eliminar archivo">Eliminar</button>
+        <span class="divider"></span>
+        <button id="btn-folder" class="btn" title="Abrir carpeta con archivos .md">Carpeta</button>
+      </div>
+      <div id="file-info" class="file-info" title="">Sin archivo</div>
+      <div class="toolbar-right">
+        <button id="btn-export-html" class="btn" title="Exportar a HTML">HTML</button>
+        <button id="btn-export-pdf" class="btn" title="Exportar a PDF">PDF</button>
+      </div>
+    </header>
+
+    <div id="main">
+      <aside id="sidebar" class="hidden">
+        <div class="sidebar-header">
+          <span>Archivos .md</span>
+        </div>
+        <div id="file-list" class="file-list"></div>
+      </aside>
+
+      <section id="editor-pane" class="pane">
+        <div class="pane-header">
+          <span>Editor</span>
+          <label class="pane-mode">
+            <input type="radio" name="view" value="split" checked> Split
+            <input type="radio" name="view" value="edit"> Solo editor
+            <input type="radio" name="view" value="preview"> Solo vista previa
+          </label>
+        </div>
+        <textarea id="editor" class="editor" spellcheck="false" placeholder="Abre o crea un archivo Markdown para empezar a editar..."></textarea>
+      </section>
+
+      <section id="preview-pane" class="pane">
+        <div class="pane-header"><span>Vista previa</span></div>
+        <div id="preview" class="preview markdown-body"></div>
+      </section>
+    </div>
+
+    <footer id="statusbar">
+      <span id="status-file">Sin archivo</span>
+      <span id="status-extra"></span>
+      <div id="search" class="search hidden">
+        <input id="search-input" type="text" placeholder="Buscar en el documento..." />
+        <span id="search-count" class="search-count"></span>
+        <button id="search-prev" class="btn btn-small" title="Anterior">▲</button>
+        <button id="search-next" class="btn btn-small" title="Siguiente">▼</button>
+        <button id="search-close" class="btn btn-small" title="Cerrar">✕</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../../node_modules/markdown-it/dist/browser/markdown-it.umd.min.js"></script>
+  <script src="../../node_modules/@highlightjs/cdn-assets/highlight.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

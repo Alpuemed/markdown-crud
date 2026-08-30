@@ -1,0 +1,59 @@
+{
+  "name": "markdown-crud",
+  "version": "1.0.0",
+  "description": "Aplicación CRUD de archivos Markdown con vista previa estilizada y exportación a HTML/PDF",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win nsis",
+    "dist": "electron-builder --win"
+  },
+  "keywords": [
+    "markdown",
+    "electron",
+    "crud",
+    "editor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.15.3"
+  },
+  "dependencies": {
+    "@highlightjs/cdn-assets": "^11.12.0",
+    "github-markdown-css": "^5.9.0",
+    "highlight.js": "^11.12.0",
+    "markdown-it": "^15.0.1"
+  },
+  "build": {
+    "appId": "com.example.markdowncrud",
+    "productName": "Markdown CRUD",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Markdown CRUD"
+    }
+  }
+}
